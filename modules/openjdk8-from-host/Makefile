@@ -6,7 +6,7 @@ $(error Cannot provide JDK when cross-compiling)
 endif
 
 SRC = $(shell readlink -f ../..)
-
+../upstream/zulu10.3.5-ca-jdk10.0.2-linux_x64
 javac_exe_path = $(shell realpath $$(which javac))
 javac_bin_path = $(shell dirname $(javac_exe_path))
 java_jdk_path = $(shell dirname $(javac_bin_path))
