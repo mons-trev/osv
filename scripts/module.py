@@ -124,7 +124,6 @@ def make_modules(modules, args):
         if os.path.exists(os.path.join(module.local_path, 'Makefile')):
             if subprocess.call(make_cmd('module', j=args.j, jobserver=args.jobserver_fds),
                             shell=True, cwd=module.local_path):
-                print("module = " + module)
                 raise Exception('make failed for ' + module.name)
 
 def flatten_list(elememnts):
