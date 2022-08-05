@@ -260,7 +260,7 @@ def clean(args):
 if __name__ == "__main__":
     print("module.py 259실행 ///////////////////")
 
-image_configs_dir = resolve.get_images_dir()
+    image_configs_dir = resolve.get_images_dir()
 
     parser = argparse.ArgumentParser(prog='module.py')
     parser.add_argument('--jobserver-fds', action='store', default=None,
