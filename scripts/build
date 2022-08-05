@@ -284,10 +284,12 @@ echo //////////////////////////267
 	export fs_type mode OSV_BUILD_PATH libgcc_s_dir
 	# Other variables we wanted to rename, I don't know why
 	export ARCH=$arch OSV_BASE=$SRC
+		echo //////////////////////////287
+
 	# Run what we wanted to run. It will inherit everything we exported above.
 	scripts/module.py $j_arg build -c "$modules" $usrskel_arg $no_required_arg
 )
-	echo //////////////////////////290
+	echo //////////////////////////292
 
 if [[ ${vars[append_manifest]} == "true" && -f "$OSV_BUILD_PATH/append.manifest" ]]; then
 	cat "$OSV_BUILD_PATH/append.manifest" >> "$OSV_BUILD_PATH/usr.manifest"
@@ -295,34 +297,34 @@ if [[ ${vars[append_manifest]} == "true" && -f "$OSV_BUILD_PATH/append.manifest"
 		cp $OSV_BUILD_PATH/append_cmdline $OSV_BUILD_PATH/cmdline
 	fi
 fi
-	echo //////////////////////////298
+	echo //////////////////////////300
 
 
 bootfs_manifest=$manifest make "${args[@]}" | tee -a build.out
 # check exit status of make
 status=${PIPESTATUS[0]}
-	echo //////////////////////////304
+	echo //////////////////////////306
 
 if [ $status -ne 0 ]
 then
 	echo "make failed. Exiting from build script"
 	exit $status
 fi
-	echo //////////////////////////311
+	echo //////////////////////////313
 
 if test ! -f build/last/loader.img
 then
 	echo "'make' did not leave expected results" >&2
 	exit 2
 fi
-	echo //////////////////////////318
+	echo //////////////////////////320
 
 loader_size=`stat --printf %s $OUT/loader.img`
 kernel_end=$(($loader_size+2097151 & ~2097151))
 
 # The python scripts called below assume the current directory is $OUT (as was
 # the case in our old build.mk).
-	echo //////////////////////////325
+	echo //////////////////////////327
 echo OUT= $OUT
 cd $OUT
 
