@@ -222,6 +222,7 @@ ramfs)
 	echo "Unknown filesystem \"$fs_type\"" >&2
 	exit 2
 esac
+echo //////////////////////////225
 
 if [[ "$host_arch" == "aarch64" || "$arch" == "aarch64" ]]; then
 	vars[create_disk]="true"
@@ -242,6 +243,7 @@ fi
 if [[ ${vars[append_manifest]} == "true" && $modules == "!default" ]]; then
 	modules="empty"
 fi
+echo //////////////////////////246
 
 CC=gcc
 if [[ "$host_arch" == "x86_64" && "$arch" == 'aarch64' ]]; then
