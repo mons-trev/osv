@@ -90,12 +90,12 @@ do
 		args+=("$i") ;;
 	esac
 done
-echo //////////////////////////93
+echo //////////////////////////93 처음
 if [[ "${arch-}" == "aarch64" && -d "build/downloaded_packages/aarch64/toolchain/" ]]; then
 	. scripts/download_aarch64_toolchain.sh
 	export CROSS_PREFIX=aarch64-none-linux-gnu-
 fi
-echo //////////////////////////98
+echo //////////////////////////98 # 맨 처음 실행 시 여기 시작!!!!!
 make "${args[@]}" ${stage1_args} | tee build.out
 # check exit status of make
 status=${PIPESTATUS[0]}
@@ -178,10 +178,12 @@ fs_size_mb=${vars[fs_size_mb]-512}
 fs_size=${vars[fs_size]-$(($fs_size_mb*1024*1024))}
 # size must be a multiple of 512. Round it down
 fs_size=$((fs_size - (fs_size & 511)))
+echo //////////////////////////181
 
 SRC=`pwd`
 arch=`expr $OUT : '.*\.\(.*\)'`
 mode=`expr $OUT : '.*/\(.*\)\..*'`
+echo //////////////////////////186
 
 # Set "modules" according to the image= or modules= paramters, or some
 # defaults (with same rules as in our old makefile)
@@ -189,7 +191,10 @@ case $arch in
 aarch64) image=${vars[image]-uush};;
 *) image=${vars[image]-default};;
 esac
+echo //////////////////////////194
+
 modules=${vars[modules]-!$image}
+echo //////////////////////////197
 
 case $OUT in
 /*)	OSV_BUILD_PATH=$OUT;;
@@ -365,9 +370,11 @@ create_zfs_filesystem() {
 	fi
 }
 
+echo /////////////////////////373
 if [[ "$arch" == 'aarch64' ]]; then
 	export STRIP=${CROSS_PREFIX:-aarch64-linux-gnu-}strip
 fi
+
 
 case $fs_type in
 zfs)
@@ -426,6 +433,7 @@ if [[ ${vars[create_zfs_disk]} == "true" ]]; then
 	qemu-img resize $qcow2_disk.img ${image_size}b >/dev/null 2>&1
 	create_zfs_filesystem $qcow2_disk.img "/dev/vblk0.1" 1
 fi
+echo /////////////////////////436
 
 # Support "build check"
 for i
