@@ -288,7 +288,7 @@ echo //////////////////////////267 args=$args
     echo modules= $modules j_arg=$j_arg usrskel_arg=$usrskel_arg no_required_arg= $no_required_arg
 	# Run what we wanted to run. It will inherit everything we exported above.
 	scripts/module.py $j_arg build -c "$modules" $usrskel_arg $no_required_arg
-)
+echo //////////////////291)
 	echo //////////////////////////292
 
 if [[ ${vars[append_manifest]} == "true" && -f "$OSV_BUILD_PATH/append.manifest" ]]; then
