@@ -90,12 +90,12 @@ do
 		args+=("$i") ;;
 	esac
 done
-
+echo //////////////////////////93
 if [[ "${arch-}" == "aarch64" && -d "build/downloaded_packages/aarch64/toolchain/" ]]; then
 	. scripts/download_aarch64_toolchain.sh
 	export CROSS_PREFIX=aarch64-none-linux-gnu-
 fi
-
+echo //////////////////////////98
 make "${args[@]}" ${stage1_args} | tee build.out
 # check exit status of make
 status=${PIPESTATUS[0]}
@@ -104,7 +104,7 @@ then
 	echo "make failed. Exiting from build script"
 	exit $status
 fi
-
+echo //////////////////////////107
 for i
 do
 	case $i in
@@ -115,6 +115,7 @@ do
 		exit;;
 	esac
 done
+echo //////////////////////////118
 
 # Find out where "make" decided to put its compilation results. We'll
 # put the images in the same place.
@@ -124,6 +125,7 @@ then
 	exit 2
 fi
 OUT=build/`readlink build/last`
+echo //////////////////////////128
 
 # Look for arguments that look like "name=value", and set them in an
 # assoative array "vars". Also look for the "-j ..." parallelism option,
@@ -168,6 +170,7 @@ do
 		vars[use_openzfs]="true";;
 	esac
 done
+echo //////////////////////////173
 
 # fs_size_mb is in megabytes (1024*1024 bytes)
 fs_size_mb=${vars[fs_size_mb]-512}
