@@ -284,7 +284,7 @@ echo //////////////////////////267 args=$args
 	export fs_type mode OSV_BUILD_PATH libgcc_s_dir
 	# Other variables we wanted to rename, I don't know why
 	export ARCH=$arch OSV_BASE=$SRC
-		echo //////////////////////////287 #여기서 Using image config 시작!!!
+		echo //////////////////////////287 modules=$modules #여기서 Using image config 시작!!!
     echo modules= $modules j_arg=$j_arg usrskel_arg=$usrskel_arg no_required_arg= $no_required_arg
 	# Run what we wanted to run. It will inherit everything we exported above.
 	scripts/module.py $j_arg build -c "$modules" $usrskel_arg $no_required_arg
