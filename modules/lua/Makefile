@@ -97,4 +97,5 @@ clean:
 	rm -rf upstream
 
 .PHONY: module clean $(LUA_MODULES)
+		echo "lua/Makefile ++++++++++++++++++ 100"
 .NOTPARALLEL: $(LUA_MODULES)
