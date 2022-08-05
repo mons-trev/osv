@@ -249,6 +249,7 @@ CC=gcc
 if [[ "$host_arch" == "x86_64" && "$arch" == 'aarch64' ]]; then
     CC=${CROSS_PREFIX:-aarch64-linux-gnu-}gcc
 fi
+echo //////////////////////////252
 
 libgcc_s_path=$(${CC} -print-file-name=libgcc_s.so.1)
 if [[ "$libgcc_s_path" == "libgcc_s.so.1" ]]; then
@@ -259,9 +260,12 @@ if [[ "$libgcc_s_path" == "libgcc_s.so.1" ]]; then
 	libgcc_s_path="build/downloaded_packages/aarch64/gcc/install/lib64/libgcc_s.so.1"
 fi
 libgcc_s_dir=$(dirname $(readlink -f ${libgcc_s_path}))
+echo //////////////////////////263
 
 # The parentheses start a subshell. Whatever is exported there, doesn't affect the external shell
 (
+echo //////////////////////////267
+
 	# Note: the double-quotes and almost everything in the line below is important to correctly allow spaces
 	# This specifically allows us to pass extra arguments to the modules/apps makefiles
 	for i in "${args[@]}"
