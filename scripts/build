@@ -261,6 +261,7 @@ if [[ "$libgcc_s_path" == "libgcc_s.so.1" ]]; then
 fi
 libgcc_s_dir=$(dirname $(readlink -f ${libgcc_s_path}))
 echo //////////////////////////263
+echo ${args[@]}
 
 # The parentheses start a subshell. Whatever is exported there, doesn't affect the external shell
 (
@@ -276,6 +277,9 @@ echo //////////////////////////267
 			export "$i" ;;
 		esac
 	done
+
+	echo //////////////////////////280
+
 	# Export the variables we already have. This makes it unnecessary to do "fs__type=$fstype ..."
 	export fs_type mode OSV_BUILD_PATH libgcc_s_dir
 	# Other variables we wanted to rename, I don't know why
