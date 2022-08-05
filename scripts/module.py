@@ -121,7 +121,7 @@ def make_cmd(cmdline, j, jobserver):
 
 def make_modules(modules, args):
     for module in modules:
-        print("module.py 124 실행 ///////// module = "+module)
+        print("-----------------------------------------module.py 124 실행 ///////// module = "+module)
     if os.path.exists(os.path.join(module.local_path, 'Makefile')):
             if subprocess.call(make_cmd('module', j=args.j, jobserver=args.jobserver_fds),
                                shell=True, cwd=module.local_path):
@@ -164,7 +164,7 @@ def generate_cmdline(apps):
             print("No apps selected")
 
 def build(args):
-    print("module.py 166실행 ///////////////////")
+    print("-----------------------------------------module.py 166실행 ///////////////////")
     add_default = True
     if args.image_config[0] == "!":
         add_default = False
@@ -258,7 +258,7 @@ def clean(args):
                     raise Exception('\'make clean\' failed in ' + local_path)
 
 if __name__ == "__main__":
-    print("module.py 259실행 ///////////////////")
+    print("-----------------------------------------module.py 259실행 ///////////////////")
 
     image_configs_dir = resolve.get_images_dir()
 
