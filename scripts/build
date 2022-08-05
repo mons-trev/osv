@@ -95,7 +95,7 @@ if [[ "${arch-}" == "aarch64" && -d "build/downloaded_packages/aarch64/toolchain
 	. scripts/download_aarch64_toolchain.sh
 	export CROSS_PREFIX=aarch64-none-linux-gnu-
 fi
-echo //////////////////////////98 # 맨 처음 실행 시 여기 시작!!!!!
+echo "//////////////////////////98"+$args[@]# 맨 처음 실행 시 여기 시작!!!!!
 make "${args[@]}" ${stage1_args} | tee build.out
 # check exit status of make
 status=${PIPESTATUS[0]}
@@ -104,7 +104,7 @@ then
 	echo "make failed. Exiting from build script"
 	exit $status
 fi
-echo //////////////////////////107
+  echo //////////////////////////107
 for i
 do
 	case $i in
