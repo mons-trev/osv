@@ -122,10 +122,10 @@ def make_cmd(cmdline, j, jobserver):
 def make_modules(modules, args):
     for module in modules:
         print("-----------------------------------------module.py 124 실행 ///////// module = "+module)
-    if os.path.exists(os.path.join(module.local_path, 'Makefile')):
-            if subprocess.call(make_cmd('module', j=args.j, jobserver=args.jobserver_fds),
+            if os.path.exists(os.path.join(module.local_path, 'Makefile')):
+                if subprocess.call(make_cmd('module', j=args.j, jobserver=args.jobserver_fds),
                                shell=True, cwd=module.local_path):
-                raise Exception('make failed for ' + module.name)
+                    raise Exception('make failed for ' + module.name)
 
 def flatten_list(elememnts):
     if not elememnts:
@@ -258,7 +258,7 @@ def clean(args):
                     raise Exception('\'make clean\' failed in ' + local_path)
 
 if __name__ == "__main__":
-    print("-----------------------------------------module.py 259실행 ///////////////////")
+    print("-----------------------------------------module.py 261 실행 ///////////////////")
 
     image_configs_dir = resolve.get_images_dir()
 
@@ -268,6 +268,7 @@ if __name__ == "__main__":
     parser.add_argument('-j', action='store', default=None,
                         help='make -j support')
     subparsers = parser.add_subparsers(help="Command")
+    print("-----------------------------------------module.py 271 실행 ///////////////////")
 
     build_cmd = subparsers.add_parser("build", help="Build modules")
     build_cmd.add_argument("-c", "--image-config", action="store", default="default",
