@@ -25,7 +25,7 @@ LUA_MODULES=LuaSocket LuaJSON Lua_stdlib LuaFileSystem LuaPath LuaSec
 module: $(LUA_MODULES)
 	mkdir -p $(MODULES_DIR)
 	echo "/usr/lib/liblua53.so: $(SRC)/modules/lua/$(LUA_DIR)/liblua53.so" > usr.manifest
-	echo lua/Makefile module
+	echo "lua/Makefile module"
 
 
 # Download lua interpreter from lua binaries
