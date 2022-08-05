@@ -232,7 +232,6 @@ def build(args):
     for module, run_config_name in modules_to_run.items():
         run_config = resolve.get_run_config(module, run_config_name)
         if run_config:
-            print("module.py 234번 실행/////////// module = " + module)
             run_list.append(run_config)
 
     make_modules(modules, args)
