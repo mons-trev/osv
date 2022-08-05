@@ -25,17 +25,19 @@ LUA_MODULES=LuaSocket LuaJSON Lua_stdlib LuaFileSystem LuaPath LuaSec
 module: $(LUA_MODULES)
 	mkdir -p $(MODULES_DIR)
 	echo "/usr/lib/liblua53.so: $(SRC)/modules/lua/$(LUA_DIR)/liblua53.so" > usr.manifest
-	echo "lua/Makefile module"
+	echo "+++++++++++++++++++++++++++++lua/Makefile module"
 
 
 # Download lua interpreter from lua binaries
 $(LUA_DIR)/lua53:
+	echo "+++++++++++++++++++++++++++++lua/Makefile 33"
 	mkdir -p $(LUA_DIR)
 	cd upstream && wget -c "https://sourceforge.net/projects/luabinaries/files/5.3.6/Tools%20Executables/lua-5.3.6_Linux54_64_bin.tar.gz"
 	cd $(LUA_DIR) && tar xf ../lua-5.3.6_Linux54_64_bin.tar.gz
 
 # Download lua shared library and header files from lua binaries
 $(LUA_DIR)/liblua53.so:
+	echo "+++++++++++++++++++++++++++++lua/Makefile 40"
 	mkdir -p $(LUA_DIR)
 	cd upstream && wget -c "https://sourceforge.net/projects/luabinaries/files/5.3.6/Linux%20Libraries/lua-5.3.6_Linux54_64_lib.tar.gz"
 	cd $(LUA_DIR) && tar xf ../lua-5.3.6_Linux54_64_lib.tar.gz
