@@ -265,7 +265,7 @@ echo ${args[@]}
 
 # The parentheses start a subshell. Whatever is exported there, doesn't affect the external shell
 (
-echo //////////////////////////267
+echo //////////////////////////267 args=$args
 
 	# Note: the double-quotes and almost everything in the line below is important to correctly allow spaces
 	# This specifically allows us to pass extra arguments to the modules/apps makefiles

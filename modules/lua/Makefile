@@ -6,7 +6,6 @@ SRC = $(shell readlink -f ../..)
 # This should make maintenance of lua module much less painful as regardless
 # of the Linux distribution and version it will use lua 5.3 and luarocks 3.1.1
 # until we specifically upgrade them by modifying this makefile.
-
 LUA=lua5.3
 LUA_DIR=upstream/$(LUA)
 LUA_ROCKS=upstream/luarocks-3.1.1-linux-x86_64/luarocks
@@ -26,6 +25,8 @@ LUA_MODULES=LuaSocket LuaJSON Lua_stdlib LuaFileSystem LuaPath LuaSec
 module: $(LUA_MODULES)
 	mkdir -p $(MODULES_DIR)
 	echo "/usr/lib/liblua53.so: $(SRC)/modules/lua/$(LUA_DIR)/liblua53.so" > usr.manifest
+	echo lua/Makefile module
+
 
 # Download lua interpreter from lua binaries
 $(LUA_DIR)/lua53:
